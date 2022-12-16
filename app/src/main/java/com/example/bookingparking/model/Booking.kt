@@ -1,0 +1,1 @@
+package com.example.bookingparking.modeldata class Booking(    val name:String,    val plate: String,    val codeParking:String,    val timeStamp:String,    val saveUID:String,    val docTicketID:String)

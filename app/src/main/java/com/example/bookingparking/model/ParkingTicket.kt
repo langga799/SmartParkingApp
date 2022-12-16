@@ -1,0 +1,1 @@
+package com.example.bookingparking.modeldata class ParkingTicket(    val name:String? = null,    val codeParking:String? = null,    val plate:String? = null,    val saveUID:String? = null,    val docTicketID:String? = null)
