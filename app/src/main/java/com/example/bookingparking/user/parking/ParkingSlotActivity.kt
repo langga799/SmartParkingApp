@@ -1,17 +1,21 @@
 package com.example.bookingparking.user.parking
 
+import android.R.id
 import android.content.Intent
 import android.os.Bundle
+import android.text.Html
+import android.text.SpannableStringBuilder
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.text.bold
 import com.example.bookingparking.R
 import com.example.bookingparking.databinding.ActivityParkingSlotBinding
 import com.example.bookingparking.helper.SharedPreference
-import com.example.bookingparking.helper.onError
 import com.example.bookingparking.user.auth.LogoutUserActivity
 import com.example.bookingparking.user.parking.DetailParkingSlotActivity.Companion.EXTRA_CODE_PARKING
+import com.google.common.io.Files.append
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -19,6 +23,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+
 
 class ParkingSlotActivity : AppCompatActivity() {
 
@@ -58,6 +63,13 @@ class ParkingSlotActivity : AppCompatActivity() {
                                     .addValueEventListener(object : ValueEventListener {
                                         override fun onDataChange(snapshot: DataSnapshot) {
                                             if (snapshot.value.toString() == "P01") {
+
+                                                val spanBold = SpannableStringBuilder()
+                                                    .append("You have booking now in ")
+                                                    .bold { append("P01") }
+
+                                                labelInformationBookingParking.text = spanBold
+
                                                 p01.isEnabled = true
                                                 p02.isEnabled = false
                                                 p03.isEnabled = false
@@ -108,6 +120,13 @@ class ParkingSlotActivity : AppCompatActivity() {
                                     .addValueEventListener(object : ValueEventListener {
                                         override fun onDataChange(snapshot: DataSnapshot) {
                                             if (snapshot.value.toString() == "P02") {
+
+                                                val spanBold = SpannableStringBuilder()
+                                                    .append("You have booking now in ")
+                                                    .bold { append("P02") }
+
+                                                labelInformationBookingParking.text = spanBold
+
                                                 p01.isEnabled = false
                                                 p02.isEnabled = true
                                                 p03.isEnabled = false
@@ -157,6 +176,13 @@ class ParkingSlotActivity : AppCompatActivity() {
                                     .addValueEventListener(object : ValueEventListener {
                                         override fun onDataChange(snapshot: DataSnapshot) {
                                             if (snapshot.value.toString() == "P03") {
+
+                                                val spanBold = SpannableStringBuilder()
+                                                    .append("You have booking now in ")
+                                                    .bold { append("P03") }
+
+                                                labelInformationBookingParking.text = spanBold
+
                                                 p01.isEnabled = false
                                                 p02.isEnabled = false
                                                 p03.isEnabled = true
@@ -205,6 +231,13 @@ class ParkingSlotActivity : AppCompatActivity() {
                                     .addValueEventListener(object : ValueEventListener {
                                         override fun onDataChange(snapshot: DataSnapshot) {
                                             if (snapshot.value.toString() == "P04") {
+
+                                                val spanBold = SpannableStringBuilder()
+                                                    .append("You have booking now in ")
+                                                    .bold { append("P04") }
+
+                                                labelInformationBookingParking.text = spanBold
+
                                                 p01.isEnabled = false
                                                 p02.isEnabled = false
                                                 p03.isEnabled = false
@@ -253,6 +286,13 @@ class ParkingSlotActivity : AppCompatActivity() {
                                     .addValueEventListener(object : ValueEventListener {
                                         override fun onDataChange(snapshot: DataSnapshot) {
                                             if (snapshot.value.toString() == "P05") {
+
+                                                val spanBold = SpannableStringBuilder()
+                                                    .append("You have booking now in ")
+                                                    .bold { append("P05") }
+
+                                                labelInformationBookingParking.text = spanBold
+
                                                 p01.isEnabled = false
                                                 p02.isEnabled = false
                                                 p03.isEnabled = false
@@ -301,6 +341,13 @@ class ParkingSlotActivity : AppCompatActivity() {
                                     .addValueEventListener(object : ValueEventListener {
                                         override fun onDataChange(snapshot: DataSnapshot) {
                                             if (snapshot.value.toString() == "P06") {
+
+                                                val spanBold = SpannableStringBuilder()
+                                                    .append("You have booking now in ")
+                                                    .bold { append("P06") }
+
+                                                labelInformationBookingParking.text = spanBold
+
                                                 p01.isEnabled = false
                                                 p02.isEnabled = false
                                                 p03.isEnabled = false
