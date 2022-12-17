@@ -98,6 +98,12 @@ class ParkingSlotActivity : AppCompatActivity() {
                                 p01.setCardBackgroundColor(ContextCompat.getColor(this@ParkingSlotActivity,
                                     R.color.green))
 
+                                val spanBold = SpannableStringBuilder()
+                                    .append("You have booking now in ")
+                                    .bold { append("---") }
+
+                                labelInformationBookingParking.text = spanBold
+
                                 p01.isEnabled = true
                                 p01.setOnClickListener {
                                     val intent = Intent(this@ParkingSlotActivity,
@@ -154,6 +160,12 @@ class ParkingSlotActivity : AppCompatActivity() {
                                 p02.setCardBackgroundColor(ContextCompat.getColor(this@ParkingSlotActivity,
                                     R.color.green))
 
+                                val spanBold = SpannableStringBuilder()
+                                    .append("You have booking now in ")
+                                    .bold { append("---") }
+
+                                labelInformationBookingParking.text = spanBold
+
                                 p02.isEnabled = true
                                 p02.setOnClickListener {
                                     val intent = Intent(this@ParkingSlotActivity,
@@ -208,6 +220,12 @@ class ParkingSlotActivity : AppCompatActivity() {
                             snapshot.child("P03").value.toString() == "0" -> {
                                 p03.setCardBackgroundColor(ContextCompat.getColor(this@ParkingSlotActivity,
                                     R.color.green))
+
+                                val spanBold = SpannableStringBuilder()
+                                    .append("You have booking now in ")
+                                    .bold { append("---") }
+
+                                labelInformationBookingParking.text = spanBold
 
                                 p03.isEnabled = true
                                 p03.setOnClickListener {
@@ -264,6 +282,12 @@ class ParkingSlotActivity : AppCompatActivity() {
                                 p04.setCardBackgroundColor(ContextCompat.getColor(this@ParkingSlotActivity,
                                     R.color.green))
 
+                                val spanBold = SpannableStringBuilder()
+                                    .append("You have booking now in ")
+                                    .bold { append("---") }
+
+                                labelInformationBookingParking.text = spanBold
+
                                 p04.isEnabled = true
                                 p04.setOnClickListener {
                                     val intent = Intent(this@ParkingSlotActivity,
@@ -318,6 +342,12 @@ class ParkingSlotActivity : AppCompatActivity() {
                             snapshot.child("P05").value.toString() == "0" -> {
                                 p05.setCardBackgroundColor(ContextCompat.getColor(this@ParkingSlotActivity,
                                     R.color.green))
+
+                                val spanBold = SpannableStringBuilder()
+                                    .append("You have booking now in ")
+                                    .bold { append("---") }
+
+                                labelInformationBookingParking.text = spanBold
 
                                 p05.isEnabled = true
                                 p05.setOnClickListener {
@@ -374,6 +404,12 @@ class ParkingSlotActivity : AppCompatActivity() {
                                 p06.setCardBackgroundColor(ContextCompat.getColor(this@ParkingSlotActivity,
                                     R.color.green))
 
+                                val spanBold = SpannableStringBuilder()
+                                    .append("You have booking now in ")
+                                    .bold { append("---") }
+
+                                labelInformationBookingParking.text = spanBold
+
                                 p06.isEnabled = true
                                 p06.setOnClickListener {
                                     val intent = Intent(this@ParkingSlotActivity,
@@ -393,63 +429,7 @@ class ParkingSlotActivity : AppCompatActivity() {
             })
     }
 
-    private fun parkingSlot() {
-        binding.apply {
-            p01.setOnClickListener {
 
-//                reference.child("preBooking")
-//                    .child(auth.uid.toString())
-//                    .child("codeParking")
-//                    .addValueEventListener(object : ValueEventListener{
-//                        override fun onDataChange(snapshot: DataSnapshot) {
-//                            if ()
-//                        }
-//
-//                        override fun onCancelled(error: DatabaseError) {
-//
-//                        }
-//
-//                    })
-
-                val intent = Intent(this@ParkingSlotActivity, DetailParkingSlotActivity::class.java)
-                intent.putExtra(EXTRA_CODE_PARKING, "P01")
-                startActivity(intent)
-            }
-
-            p02.setOnClickListener {
-                val intent = Intent(this@ParkingSlotActivity, DetailParkingSlotActivity::class.java)
-                intent.putExtra(EXTRA_CODE_PARKING, "P02")
-                startActivity(intent)
-            }
-
-            p03.setOnClickListener {
-                val intent = Intent(this@ParkingSlotActivity, DetailParkingSlotActivity::class.java)
-                intent.putExtra(EXTRA_CODE_PARKING, "P03")
-                startActivity(intent)
-            }
-
-            p04.setOnClickListener {
-                val intent = Intent(this@ParkingSlotActivity, DetailParkingSlotActivity::class.java)
-                intent.putExtra(EXTRA_CODE_PARKING, "P04")
-                startActivity(intent)
-            }
-
-            p05.setOnClickListener {
-                val intent = Intent(this@ParkingSlotActivity, DetailParkingSlotActivity::class.java)
-                intent.putExtra(EXTRA_CODE_PARKING, "P05")
-                startActivity(intent)
-            }
-
-            p06.setOnClickListener {
-                val intent = Intent(this@ParkingSlotActivity, DetailParkingSlotActivity::class.java)
-                intent.putExtra(EXTRA_CODE_PARKING, "P06")
-                startActivity(intent)
-            }
-
-
-
-        }
-    }
 
     private fun navigation() {
         // Goto Parking Ticket
