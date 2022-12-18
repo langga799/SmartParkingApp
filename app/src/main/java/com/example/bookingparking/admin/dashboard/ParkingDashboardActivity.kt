@@ -12,12 +12,17 @@ import com.example.bookingparking.admin.auth.LogoutAdminActivity
 import com.example.bookingparking.databinding.ActivityParkingDashboardBinding
 import com.example.bookingparking.helper.*
 import com.example.bookingparking.model.ParkingTicket
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class ParkingDashboardActivity : AppCompatActivity() {
 
@@ -57,7 +62,7 @@ class ParkingDashboardActivity : AppCompatActivity() {
             .orderBy("timeStamp", Query.Direction.DESCENDING)
             .addSnapshotListener { snap, error ->
 
-                Log.d("SNAP", snap?.documents .toString())
+                Log.d("SNAP", snap?.documents.toString())
 
                 binding.apply {
                     rvListParking.visible()
@@ -102,6 +107,31 @@ class ParkingDashboardActivity : AppCompatActivity() {
 
 
     private fun navigation() {
+        val builder = MaterialAlertDialogBuilder(this)
+        builder.setCancelable(false)
+        builder.setView(R.layout.progress)
+        val dialog = builder.create()
+
+        binding.btnExitPortal.setOnClickListener {
+            reference.child("portal")
+                .child("servoExit")
+                .setValue("1")
+
+            dialog.show()
+
+            CoroutineScope(Dispatchers.IO).launch {
+                delay(5000L)
+                reference.child("portal")
+                    .child("servoExit")
+                    .setValue("0").addOnSuccessListener {
+                        CoroutineScope(Dispatchers.Main).launch {
+                            dialog.dismiss()
+                        }
+                    }
+            }
+
+        }
+
         val toolbar = binding.toolbar
         toolbar.apply {
             title = "Dashboard Admin"
